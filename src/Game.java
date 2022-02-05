@@ -47,7 +47,7 @@ public class Game extends JPanel implements Runnable, KeyListener {
 	public void run() {
 		// TODO Auto-generated method stub
 		while(true) {
-			jkjdkfndslfknsdlfksn
+			
 		}
 			
 		
