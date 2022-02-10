@@ -18,7 +18,7 @@ public class GameStateManager {
 	{
 		gamestates = new ArrayList<GameState>();
 		currentstate = 0;
-		gamestates.add(new MenuState());
+		gamestates.add(new MenuState(this));
 		
 	}
 	
@@ -28,6 +28,17 @@ public class GameStateManager {
 		currentstate = state;
 		gamestates.get(currentstate).init();
 		
+	}
+	
+	
+	public int getWidth()
+	{
+		return 800;
+	}
+	
+	public int getHeight()
+	{
+		return 600;
 	}
 	
 	
