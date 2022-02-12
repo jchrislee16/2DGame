@@ -7,6 +7,9 @@ import java.awt.event.KeyEvent;
 
 public class MenuState extends GameState{
 	
+	
+	
+	private GameStateManager gsm;
 	private int currentChoice = 0;
 	private String [] options = 
 	{
@@ -23,6 +26,7 @@ public class MenuState extends GameState{
 	
 	public MenuState(GameStateManager gsm)
 	{
+		this.gsm = gsm;
 		try {
 		titleColor = new Color(128,0,0);
 		titleFont = new Font("Century Gothic", Font.PLAIN, 28);
@@ -49,9 +53,15 @@ public class MenuState extends GameState{
 
 	@Override
 	public void draw(Graphics2D g) {
+		//background
+		g.setColor(Color.YELLOW.darker());
+        g.fillRect(0, 0, gsm.getWidth(), gsm.getHeight());
+        //title
 		g.setColor(titleColor);
 		g.setFont(titleFont);
-		g.drawString("2DGame", /*gsm.getWidth()*/800 /2, /*gsm.getHeight()*/600/4);
+		int length = (int) g.getFontMetrics().getStringBounds("2DGame", g).getWidth();
+		g.drawString("2DGame", gsm.getWidth()/2-length/2, gsm.getHeight()/4);
+		//menu options
 		g.setFont(font);
 		for(int i = 0; i < options.length; i++)
 		{
@@ -63,7 +73,9 @@ public class MenuState extends GameState{
 			{
 				g.setColor(Color.RED);
 			}
-			g.drawString(options[i],(int)(/*gsm.getWidth()*/800 /1.5), (int)((i+/*gsm.getHeight()*/600)/4));
+			length = (int) g.getFontMetrics().getStringBounds(options[i], g).getWidth();
+			int length2 = (int) g.getFontMetrics().getStringBounds(options[i], g).getHeight();
+			g.drawString(options[i],gsm.getWidth()/2 - length/2,gsm.getHeight()/2 + (int)(1.3 * i * (length2)));
 		}
 		
 		
@@ -79,9 +91,14 @@ public class MenuState extends GameState{
 		}
 		else if (currentChoice == 1)
 		{
-			
+			//change states or move to different setting: Resolution
+			gsm.setState(1);
 		}
 		else if (currentChoice == 2)
+		{
+			gsm.setState(2);
+		}
+		else if(currentChoice ==3)
 		{
 			System.exit(0);
 		}

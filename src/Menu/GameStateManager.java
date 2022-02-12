@@ -52,8 +52,12 @@ public class GameStateManager {
 		gamestates.get(currentstate).draw(g);
 	}
 	
-	public void keyPressed(int k) {}
-	public void keyReleased(int k) {}
+	public void keyPressed(int k) {
+		gamestates.get(currentstate).keyPressed(k);
+	}
+	public void keyReleased(int k) {
+		gamestates.get(currentstate).keyReleased(k);
+	}
 	
 	
 	

@@ -59,8 +59,8 @@ public class Game extends JPanel implements Runnable, KeyListener {
         super.addNotify();
         if(thread == null)
         	thread = new Thread(this);
-        addKeyListener(this);
         	thread.start();
+        	addKeyListener(this);
 	}
 	
 	
