@@ -10,15 +10,22 @@ public class GameStateManager {
 	private ArrayList<GameState> gamestates;
 	private int currentstate;
 	
-	public static final int MENUSTATE = 0;
-	public static final int RESOLUTION = 1;
-	public static final int CONTROL = 2;
+	// MENUSTATE = 0;
+	// RESOLUTION = 1;
+	// CONTROL = 2;
+	
+	private static int width;
+	private static int height;
 	
 	public GameStateManager()
 	{
+		width = 800;
+		height = 600;
 		gamestates = new ArrayList<GameState>();
 		currentstate = 0;
 		gamestates.add(new MenuState(this));
+		gamestates.add(new Resolution(this));
+		gamestates.add(new Control(this));
 		
 	}
 	
@@ -33,13 +40,24 @@ public class GameStateManager {
 	
 	public int getWidth()
 	{
-		return 800;
+		return width;
 	}
 	
 	public int getHeight()
 	{
-		return 600;
+		return height;
 	}
+	
+	public void setWidth(int i)
+	{
+		width = i;
+	}
+	
+	public void setHeight(int i)
+	{
+		height = i;
+	}
+	
 	
 	
 	public void update() 

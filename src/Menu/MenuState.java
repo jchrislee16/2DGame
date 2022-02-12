@@ -96,6 +96,7 @@ public class MenuState extends GameState{
 		}
 		else if (currentChoice == 2)
 		{
+			//change states or move to different setting: Control
 			gsm.setState(2);
 		}
 		else if(currentChoice ==3)
