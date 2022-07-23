@@ -1,12 +1,20 @@
 package GameMap;
-
 import java.awt.Graphics2D;
-
-import Menu.GameState;
+import Menu.*;
 import Assets.*;
 
 public class Map1 extends GameState{
 
+	private GameStateManager gsm;
+	
+	
+	public Map1(GameStateManager gsm)
+	{
+		this.gsm = gsm;
+	}
+	
+	
+	
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub

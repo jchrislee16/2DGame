@@ -29,6 +29,7 @@ public class Control extends GameState {
 	@Override
 	public void init() {
 		// TODO Auto-generated method stub
+		currentChoice = 0;
 
 	}
 
